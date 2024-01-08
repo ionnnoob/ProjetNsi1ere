@@ -1,0 +1,111 @@
+@media screen and (min-width: 900px){
+    .box1 {
+        position:relative;
+        top:10px;
+        color:rgb(227, 209, 209);
+        height:50px;
+        outline:2px solid black;
+        border-radius: 7px;
+    }
+    .buttonlink1{
+        position: absolute;
+        top: 2.5%;
+        left: 25px;
+        height:40px;
+        width: 125px;
+        border-radius: 5%;
+        outline:1px solid rgb(0,0,0);
+        color: white;
+        text-align: center;
+        font-weight: bold;
+        font-size: large;
+        text-decoration: none;
+        vertical-align: middle;
+    }
+    body{
+        background-color:rgb(5, 45, 54) ;
+    }
+    .Tle{
+        background-color: #b53477;
+        height: 40px;
+        width: 300px;
+        border-radius: 10px;
+        text-align: center;
+        margin: auto;
+        margin-top: 100px;
+        padding: 4px;
+    }
+
+    .buttonlink2{
+        position:absolute;
+        height:37.5%;
+        width:25%;
+        background-color:#15659c;
+        left:20%;
+        top:5%;
+        text-decoration: none;
+        text-align: center;
+        vertical-align:midd;
+        color: white;
+        border-radius: 5%;
+        font-size: large;
+        font-weight: bold;
+    }
+    .selector{
+        height:50px;
+        width:200px;
+        font-size: 16;
+        position:absolute;
+        top: 22.5%;
+        left:50%;
+        border-radius: 10px;
+    }
+    .button1{
+        position: absolute;
+        top:60%;
+        left:37.5%;
+        height: 100px;
+        width:400px;
+        border-radius: 10px;
+        outline: black 3px solid;
+        font-size: 24px;
+    }
+    .line{
+        position: absolute;
+        height: 0px;
+        width :150px;
+        outline: 3px solid white;
+
+    }
+    .inputbox1{
+        top :10%;
+        left: 24.65%; 
+        width:150px;
+        height:40px ;
+        position:absolute;
+        font-size: 20px;
+        outline: solid black 3px;
+        border-radius: 5px;
+    }
+    p{
+        font-weight: bold;
+        font-size: 32px;
+        color: white;
+
+    }
+    h1 {
+        display: block;
+        font-size: 3em;
+        margin-block-start: 0.67em;
+        margin-block-end: 0.67em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+        font-family: monospace;
+        color: white;
+    }
+    .quiz-container{
+        margin-left: 20%;
+        margin-top: 20vh;
+    }
+} 

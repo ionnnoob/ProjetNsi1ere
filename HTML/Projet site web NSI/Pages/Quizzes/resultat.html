@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../Styles/p.css">
+    <link rel="stylesheet" type="text/css" href="../../Styles/QuizzesStyle.css">
+    <script>
+        function displayResult() {
+    // Retrieve answers from localStorage
+    const q1Answer = localStorage.getItem('q1Answer');
+    const q2Answer = localStorage.getItem('q2Answer');
+
+    console.log('q1Answer:', q1Answer);
+    console.log('q2Answer:', q2Answer);
+
+    // Check if the retrieved data is not null
+    if (q1Answer !== null && q2Answer !== null) {
+      const resultContainer = document.getElementById('result-container');
+      resultContainer.innerHTML = `<p>Results:</p>
+                                    <p>Q1: ${q1Answer === '1' ? 'Correct' : 'Incorrect'}</p>
+                                    <p>Q2: ${q2Answer === '3' ? 'Correct' : 'Incorrect'}</p>`;
+
+      let correctCount = 0;
+      if (q1Answer === '1') {
+        correctCount++;
+      }
+      if (q2Answer === '3') {
+        correctCount++;
+      }
+      resultContainer.innerHTML += `<p>Vous avez obtenu la note de : ${correctCount}</p>`;
+    } else {
+      alert('Please answer all the questions before viewing the result.');
+    }
+  }
+
+  // Call displayResult function when the DOM is fully loaded
+  document.addEventListener('DOMContentLoaded', displayResult);
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        #questionnaire-container{
+            border: 2px solid #000;
+            padding: 10px;
+            width: 400px;
+            margin: auto;
+            height: 40vh;
+            max-width: 400px; /* Set a maximum width for the content */
+            width: 100%; /* Take up the full width available */
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+        .result{
+          padding-top: 40px;
+          border: black;
+          font-size: 20px;
+          font-family: monospace;
+          border-radius: 7px;
+        }
+        p{
+          margin-top: 33px;
+        }
+    
+    </style>
+</head>
+<div>
+  <div class="animated-box box1"> 
+     <a href="../index.html" class="buttonlink1" style="background:#27805f;">Acceuil</a>
+     <a></a>
+     <a href = "../inscription.html" class="buttonlink1" style="left:92%;background-color: #27805f;    vertical-align: middle;" >S'Inscrire</a>
+ </div>
+</div>
+
+<div class="result"id="result-container"></div>
