@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../Styles/style.css">
+    <link rel="stylesheet" type="text/css" href="../Styles/p.css">
+    <script type="text/javascript" src="../Scripts/Calculfractionaire.js"></script>
+</head>
+<body>
+    <div>
+        <div class="animated-box box1"></div> <!--see how its outside of the first box-->
+        <a href="index.html" class="buttonlink1" style="background:#27805f;">Acceuil</a>
+        <a></a>
+        <a href = "inscription.html" class="buttonlink1" style="left:92%;background-color: #27805f;    vertical-align: middle;" >S'Inscrire</a>
+    </div>
+    <div>
+        <div class="animated-box" style="position: relative; left:20%;top :20%;height:750px; width:60%;outline: 3px solid black; top :20px;border-radius: 5%;">
+            <p style="left:10%; top :10%;">Fraction 1:</p>
+            <div class="animated-box line" style="top :17%; left: 25%;"></div>
+            <input class="inputbox1" style="top :10%;" id="num1">
+            <input class="inputbox1" style="top :18%;" id="denom1">
+            <p style="left:10%; top :30%;">Fraction 2:</p>
+            <div class="animated-box line" style="top :37%; left: 25%;"></div>
+            <input class="inputbox1" style="top :30%;" id="num2">
+            <input class="inputbox1" style="top :38%;" id="denom2">
+            <select class="selector" id="operator">
+                <option value="0"> selctionner une operation</option>
+                <option value="1"> addition</option>
+                <option value="2"> soustraction</option>
+                <option value="3"> multiplication</option>
+                <option value="4"> division</option>
+            </select>
+            <button onclick="calculFractionnaire()" class="button1" style="height: 60px; width: 150px;">calculer</button>
+        
+            <p style="top: 70%;">Resultat: <span id="numResult"></span> /<span id="denomResult"></span></p>
+
+        </div>
+
+    </div>
+</body>
