@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../Styles/p.css">
+    <title>Forum Page</title>
+    <style>
+        .forum-container {
+            text-align: left;
+            background-color: rgb(255, 255, 255);
+            box-shadow: #FFF;
+            height: 300px;
+            width: 100%;
+        }
+
+        .Content-Box {
+            text-align: left;
+            background-color: rgb(255, 255, 255);
+            box-shadow: #FFF;
+            height: 200px;
+            width: 80%;
+        }
+
+        .ForumButton {
+            background-color: rgb(51, 153, 255);
+            height: 30px;
+            width: 12%;
+            border-radius: 4px;
+        }
+
+        .UpperBar {
+            background-color: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+            word-spacing: 200px;
+            padding-left: 15px;
+            padding-bottom: 12px;
+        }
+    
+    </style>
+
+</head>
+<body>
+    <div class="UpperBar">
+        <br>
+         # Titre Sujet Date
+        <br>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="forum-container">
+        <form>
+            <fieldset>
+                <br>
+                <br>
+                <label for="Titre">Titre du billet</label>
+                <br>
+                <input type="text" id="Titre" name="Input-box" placeholder="Titre">
+                <br>
+                <br>
+                <label for="Contenu-Billet">Remplir le billet</label>
+                <br>
+                    <input type="text" id="Contenu-Billet" name="Input-box" class="Content-Box">
+                <br>
+                <br>
+                <div Align=Center> <button type="button" class="ForumButton">Envoyer</button> </div>
+            </fieldset>
+        
+        </form>
+    </div>
+</body>
+
+</html>
+
