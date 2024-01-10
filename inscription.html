@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../Styles/p.css">
+    <link rel="stylesheet" type="text/css" href="Styles/p.css">
     <title>Inscription Page</title>
     <style>
         body {
@@ -90,12 +90,12 @@
         <div class="password-container">
             <input type="password" id="Mot-de-passe" name="Input-box" placeholder="Mot de passe" required>
             <!--Button that calls uppon JS when clicked-->
-            <button type="button" class="show-password" onclick="togglePasswordVisibility('Mot-de-passe'); toggleImage('image_1')"><img src="../Images/hide.jpg" alt="Hide-Icon" id="image_1" class="Icon"></button>
+            <button type="button" class="show-password" onclick="togglePasswordVisibility('Mot-de-passe'); toggleImage('image_1')"><img src="hide.jpg" alt="Hide-Icon" id="image_1" class="Icon"></button>
         </div>
         <br>
         <div class="password-container">
             <input type="password" id="Mot-de-passe_C" name="Input-box" placeholder="Confirmer le Mot de passe" required>
-            <button type="button" class="show-password" onclick="togglePasswordVisibility('Mot-de-passe_C'); toggleImage('image_2')"><img src="../Images/hide.jpg" alt="Hide-Icon" id="image_2" class="Icon"></button>
+            <button type="button" class="show-password" onclick="togglePasswordVisibility('Mot-de-passe_C'); toggleImage('image_2')"><img src="hide.jpg" alt="Hide-Icon" id="image_2" class="Icon"></button>
         </div>
         <br>
         <br>
@@ -132,11 +132,11 @@
         const imageElement = document.getElementById(imageId);
          //from hide.png to view.png
         if (imageElement.alt.endsWith("Hide-Icon")) {
-            imageElement.src = "../Images/view.jpg";
+            imageElement.src = "view.jpg";
             imageElement.alt = "View-Icon";
              //from anything else than hide.png to hide.png
         } else {
-            imageElement.src = "../Images/hide.jpg";
+            imageElement.src = "hide.jpg";
             imageElement.alt = "Hide-Icon";
         }
     }
