@@ -30,6 +30,6 @@ function calculFractionnaire()
                 break;
     }}
 
-    document.getElementById("numResult").textContent = denomResult;
+    document.getElementById("numResult").textContent = numResult;
     document.getElementById("denomResult").textContent = denomResult;
 }
