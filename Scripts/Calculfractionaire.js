@@ -17,7 +17,7 @@ function calculFractionnaire()
                 denomResult = denom1 * denom2;
                 break;
             case '1': // Subtraction
-                numResult = (num1 * denom2) - (num2 * denom1);
+                numResult = (num1 * denom2) + (num2 * denom1);
                 denomResult = denom1 * denom2;
                 break;
             case '2': // Multiplication
@@ -30,8 +30,6 @@ function calculFractionnaire()
                 break;
     }}
 
-    document.getElementById("numResult").textContent = numResult;
+    document.getElementById("numResult").textContent = denomResult;
     document.getElementById("denomResult").textContent = denomResult;
-    document.getElementById("denomResult").textContent = denomResult;
-    document.getElementById("numResult").textContent = numResult;
 }
