@@ -10,23 +10,28 @@ function calculFractionnaire()
 
     var operation = document.getElementById("operator").value
 
-    switch(operation){
-        case '0':
-            result
-            break;
-        case '1':
-            break;
-        case '2':
-            break;
-        case '3':
-            numResult = num1*num2
-            denomResult = denom1*denom2
-            break;
-        case '4':
-            numResult = num1*denom2
-            denomResult = denom1*num2
-            break;
-    }
+    if(denom1 !== 0 && denom2 !== 0){
+        switch (operation) {
+            case '0': // Addition
+                numResult = (num1 * denom2) + (num2 * denom1);
+                denomResult = denom1 * denom2;
+                break;
+            case '1': // Subtraction
+                numResult = (num1 * denom2) - (num2 * denom1);
+                denomResult = denom1 * denom2;
+                break;
+            case '2': // Multiplication
+                numResult = num1 * num2;
+                denomResult = denom1 * denom2;
+                break;
+            case '3': // Division
+                numResult = num1 * denom2;
+                denomResult = denom1 * num2;
+                break;
+    }}
+
+    document.getElementById("numResult").textContent = numResult;
+    document.getElementById("denomResult").textContent = denomResult;
     document.getElementById("denomResult").textContent = denomResult;
     document.getElementById("numResult").textContent = numResult;
 }
