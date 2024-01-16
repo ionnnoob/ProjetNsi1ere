@@ -12,19 +12,19 @@ function calculFractionnaire()
 
     if(denom1 !== 0 && denom2 !== 0){
         switch (operation) {
-            case '0': // Addition
+            case '1': // Addition
                 numResult = (num1 * denom2) + (num2 * denom1);
                 denomResult = denom1 * denom2;
                 break;
-            case '1': // Subtraction
-                numResult = (num1 * denom2) + (num2 * denom1);
+            case '2': // Subtraction
+                numResult = (num1 * denom2) - (num2 * denom1);
                 denomResult = denom1 * denom2;
                 break;
-            case '2': // Multiplication
+            case '3': // Multiplication
                 numResult = num1 * num2;
                 denomResult = denom1 * denom2;
                 break;
-            case '3': // Division
+            case '4': // Division
                 numResult = num1 * denom2;
                 denomResult = denom1 * num2;
                 break;
