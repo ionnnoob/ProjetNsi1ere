@@ -162,3 +162,45 @@ function changenumbase(){
 
     document.getElementById("result").textContent = result;
 }
+
+function diffnumbaseop(){
+
+    var result = null; // Initialize result
+    var operation = document.getElementById("operation").value;
+    var in1 = document.getElementById("in1").value;
+    var in2 = document.getElementById("in2").value;
+    var numbase = document.getElementById("numbase").value;
+
+    switch(operation) {
+        case '0':
+            result = "selectionner une operation";
+            break;
+        case '1':
+            if (numbase === '2') {
+                result = (parseInt(in1, 2) + parseInt(in2, 2)).toString(2);
+            } else if (numbase === '16') {
+                result = (parseInt(in1, 16) + parseInt(in2, 16)).toString(16);
+            }
+            break;
+        case '2':
+            if (numbase === '16') {
+                result = (parseInt(in1, 16) - parseInt(in2, 16)).toString(16);
+            } else if (numbase === '2') {
+                result = (parseInt(in1, 2) - parseInt(in2, 2)).toString(2);
+            }
+            break;
+        case '3':
+            if (numbase === '2') {
+                result = (parseInt(in1, 2) * parseInt(in2, 2)).toString(2);
+            } else if (numbase === '16') {
+                result = (parseInt(in1, 16) * parseInt(in2, 16)).toString(16);
+            }
+            break;
+        case '4':
+            if (numbase === '2') {
+                result = (parseInt(in1, 2) / parseInt(in2, 2)).toString(2);
+            } else if (numbase === '16') {
+                result = (parseInt(in1, 16) / parseInt(in2, 16)).toString(16);
+            }
+            break;
+    }
