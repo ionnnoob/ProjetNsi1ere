@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" type="text/css" href="Styles/style.css">
-    <link rel="stylesheet" type="text/css" href="Styles/p.css">
-    <script type="text/javascript" src="Scripts/arithmetiquebinaire.js"></script>
+    <link rel="stylesheet" type="text/css" href="../Styles/style.css">
+    <link rel="stylesheet" type="text/css" href="../Styles/p.css">
+    <script type="text/javascript" src="../Scripts/arithmetiquebinaire.js"></script>
 
 </head>
 <body>
@@ -15,7 +15,7 @@
         <div class="animated-box" class="animated-box" style="position: relative; left:20%;top :20%;height:750px; width:60%;outline: 3px solid black; top :20px;border-radius: 5%;"></div>
         <div>
             <p >Base d'entree    :</p>
-            <select name="Base" id="entrybase" class="selector" >
+            <select name="Base" id="entrybase" class="selector" style="top:20%;">
                 <option value="0">Selectionnner une base</option>
                 <option value="2">Base 2</option>
                 <option value="10">Base 10</option>
@@ -37,8 +37,39 @@
         </div>
         <button onclick="changenumbase()" class="button1">Convertir</button>
         <div>
-            
             <p style="top: 70%;">Resultat: <span id="result"></span></p>
+        </div>
+    </div>
+    <div>
+        <div class="animated-box" class="animated-box" style="position: relative; left:20%;top :20%;height: 900px; width:60%;outline: 3px solid black; top :20px;border-radius: 5%;">
+            <div>
+                <p >Base de calcul  :</p>
+                <select name="Base" id="numbase" class="selector" style="left :75%;">
+                    <option value="0">Selectionnner une base</option>
+                    <option value="2">Base 2</option>
+                    <option value="16">Base 16</option>            
+                </select>
+            </div>
+            <div>
+                <p style="top :34%">Numero d'entree  1 :</p>
+                <input style="position:absolute;top: 37%; left: 75%;height: 50px;border-radius: 10px;" id="in1">
+                <p style="top :53%">Numero d'entree  2:</p>
+                <input style="position:absolute;top: 55%; left: 75%;height: 50px;border-radius: 10px;" id="in2">
+            </div>
+            <div>relative;
+                <p style="top: 70%;">operation:</p>
+                <select name="Base" id="operation" class="selector" style="top: 70%; left :75%;">
+                    <option value="0">Selectionnner une operation</option>
+                    <option value="1">addition</option>
+                    <option value="2">soustractions</option>
+                    <option value="3">multiplication</option>
+                    <option value="4">division</option>            
+                </select>
+            </div>
+            <button onclick="diffnumbaseop()" class="button1" style="top: 80%;">calculer</button>
+            <div>
+                <p style="top: 90%;">Resultat: <span id="result1"></span></p>
+            </div>
         </div>
     </div>
 </body>
