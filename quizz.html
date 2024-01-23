@@ -101,35 +101,38 @@
       <div id="result-container2"></div>
     </form>
   </div>
+  
   <script type="text/javascript">
-   function submitForm(questionId) {
-      const form = document.getElementById(`qcm-form${questionId}`);
-      const resultContainer = document.getElementById(`result-container${questionId}`);
+  function submitForm(questionId) {
+    const form = document.getElementById(`qcm-form${questionId}`);
+    const resultContainer = document.getElementById(`result-container${questionId}`);
 
-      // Get selected answer
-      const selectedAnswer = [...form.elements].find(input => input.checked);
+    // Get selected answer
+    const selectedAnswer = [...form.elements].find(input => input.type === 'radio' && input.checked);
 
-      if (selectedAnswer) {
-        // Display result in the result container
-        resultContainer.innerHTML = `Votre réponse : ${selectedAnswer.value}`;
-      } else {
-        // If no answer is selected, display a message
-        resultContainer.innerHTML = 'Veuillez sélectionner une réponse.';
-      }
+    if (selectedAnswer) {
+      // Display result in the result container
+      resultContainer.innerHTML = `Votre réponse : ${selectedAnswer.value}`;
+    } else {
+      // If no answer is selected, display a message
+      resultContainer.innerHTML = 'Veuillez sélectionner une réponse.';
     }
+  }
 
-    function abortForm(questionId) {
-      const form = document.getElementById(`qcm-form${questionId}`);
-      const resultContainer = document.getElementById(`result-container${questionId}`);
+  function abortForm(questionId) {
+    const form = document.getElementById(`qcm-form${questionId}`);
+    const resultContainer = document.getElementById(`result-container${questionId}`);
 
-      // Clear the result container
-      resultContainer.innerHTML = '';
+    // Clear the result container
+    resultContainer.innerHTML = '';
 
-      // Reset radio buttons
-      const radioButtons = form.querySelectorAll('input[type="radio"]');
-      radioButtons.forEach(button => (button.checked = false));
-    }
-  </script>
+    // Reset radio buttons
+    const radioButtons = form.querySelectorAll('input[type="radio"]');
+    radioButtons.forEach(button => (button.checked = false));
+  }
+</script>
+
+
 </body>
 </html>
 
