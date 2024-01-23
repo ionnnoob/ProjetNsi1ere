@@ -1,6 +1,3 @@
-It seems like there is a minor issue in your HTML structure, specifically with the duplicate IDs for buttons and forms. IDs should be unique within a document. I've corrected that, and also added a JavaScript function to validate the answers and display the result in the "result-container" div. I've also fixed the closing script tag and removed unnecessary duplicate elements. Please find the updated code below:
-
-html
 
 <html>
 <head>
@@ -106,7 +103,7 @@ html
     </form>
   </div>
   <script type="text/javascript">
-    function submitForm(questionId) {
+   function submitForm(questionId) {
       const form = document.getElementById(`qcm-form${questionId}`);
       const resultContainer = document.getElementById(`result-container${questionId}`);
 
