@@ -10,7 +10,7 @@
       margin: 20px;
       text-align: center;
     }
-    #questionnaire-container {
+    .questionnaire-container {
       border: 2px solid #000;
       padding: 10px;
       width: 400px;
@@ -45,15 +45,14 @@
     </div>
   </div>
 
-  <div class="qcm" id="questionnaire-container">
+  <div class="qcm" id="questionnaire-container1">
     <h1>Questionnaire 1</h1>
-    <form id="qcm-form">
+    <form id="qcm-form1">
 
       <!-- Question 1 -->
       <div class="question">
         <p>Combien de personnes ont travaillées sur ce site magnifique</p>
         <label>
-          <!-- can change value and text to make the actual QCM -->
           <input type="radio" name="q1" value="1"> 4
         </label>
         <label>
@@ -74,7 +73,7 @@
     </form>
   </div>
 
-  <div class="qcm" id="questionnaire-container">
+  <div class="qcm" id="questionnaire-container2">
     <h1>Questionnaire 2</h1>
     <form id="qcm-form2">
 
@@ -126,12 +125,14 @@
       // Clear the result container
       const resultContainer = document.getElementById(`result-container${questionId}`);
       resultContainer.innerHTML = '';
+
+      // Explicitly call submitForm to clear the result when resetting
+      submitForm(questionId);
     }
 
     document.getElementById('resetBtn1').addEventListener('click', () => abortForm('q1'));
     document.getElementById('resetBtn2').addEventListener('click', () => abortForm('q2'));
   </script>
 </body>
-
 </html>
 
