@@ -78,7 +78,7 @@
     <h1>Questionnaire 2</h1>
     <form id="qcm-form2">
 
-      <!-- Question 2 -->
+     
       <div class="question">
         <p>Combien de présidents de la républiques différents pendant la Ve République en France</p>
         <label>
@@ -108,11 +108,11 @@
     const resultContainer = document.getElementById(`result-container${questionId}`);
 
     // Get selected answer
-    const selectedAnswer = [...form.elements].find(input => input.type === 'radio' && input.checked);
+    const selectedAnswer = [..form.elements].find(input => input.type === 'radio' && input.checked);
 
     if (selectedAnswer) {
       // Display result in the result container
-      resultContainer.innerHTML = `Votre réponse : ${selectedAnswer.value}`;
+      resultContainer.innerHTML = `Votre réponse : {selectedAnswer.value}`;
     } else {
       // If no answer is selected, display a message
       resultContainer.innerHTML = 'Veuillez sélectionner une réponse.';
@@ -128,7 +128,7 @@
 
     // Reset radio buttons
     const radioButtons = form.querySelectorAll('input[type="radio"]');
-    radioButtons.forEach(button => (button.checked = false));
+    radioButtons.forEach(button (button.checked = false));
   }
 </script>
 
