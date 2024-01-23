@@ -232,12 +232,6 @@
         // Redirects to index.html
         window.location.href = "index.html";
     })
-    .catch(error => {
-        console.error('Error submitting form:', error);
-
-        // If there is an error, still attempt to redirect to index.html
-        window.location.href = "index.html";
-    });
 
     // Prevent the form from being submitted the traditional way
     return false;
