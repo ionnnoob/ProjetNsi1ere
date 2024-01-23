@@ -38,7 +38,7 @@
   </style>
 </head>
 
-<body>
+ <body>
   <div>
     <div class="animated-box box1">
       <a href="index.html" class="buttonlink1" style="background:#27805f;">Accueil</a>
@@ -46,15 +46,14 @@
     </div>
   </div>
 
-  <div class="qcm" id="questionnaire-container">
+  <div class="qcm" id="questionnaire-container1">
     <h1>Questionnaire 1</h1>
-    <form id="qcm-form">
+    <form id="qcm-form1">
 
       <!-- Question 1 -->
       <div class="question">
         <p>Combien de personnes ont travaillées sur ce site magnifique</p>
         <label>
-          <!-- can change value and text to make the actual QCM -->
           <input type="radio" name="q1" value="1"> 4
         </label>
         <label>
@@ -68,14 +67,14 @@
         </label>
       </div>
       <div>
-        <button type="button" id="resetBtn1">Réinitialiser</button>
+        <button type="button" id="resetBtn1" onclick="abortForm('q1')">Réinitialiser</button>
         <button type="button" id="submitBtn1" onclick="submitForm('q1')">Valider vos réponses</button>
       </div>
       <div id="result-container1"></div>
     </form>
   </div>
 
-  <div class="qcm" id="questionnaire-container">
+  <div class="qcm" id="questionnaire-container2">
     <h1>Questionnaire 2</h1>
     <form id="qcm-form2">
 
@@ -96,7 +95,7 @@
         </label>
       </div>
       <div>
-        <button type="button" id="resetBtn2">Réinitialiser</button>
+        <button type="button" id="resetBtn2" onclick="abortForm('q2')">Réinitialiser</button>
         <button type="button" id="submitBtn2" onclick="submitForm('q2')">Valider vos réponses</button>
       </div>
       <div id="result-container2"></div>
