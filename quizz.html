@@ -73,6 +73,9 @@
         <button type="button" id="resetBtn">Réinitialiser</button>
         <button type="button" id="submitBtn" onclick="submitForm()">Valider vos réponses</button>
     </div>
+    <div id="result-container"></div>
+  </form>
+
 <!--copy & paste-->
 
 
@@ -98,11 +101,11 @@
         <input type="radio" name="q2" value="4"> 9
       </label>
     </div>
-
- 
+    <div>
     <button type="button" id="resetBtn">Réinitialiser</button>
     <button type="button" id="submitBtn" onclick="submitForm()">Valider vos réponses</button>
-
+    </div>
+  </form>
 
 
   
@@ -110,37 +113,56 @@
  
 </div>
 <script type="text/javascript">
-  document.addEventListener('DOMContentLoaded', function() {
-   function submitForm() {
-const form = document.getElementById('qcm-form');
-// Get the selected values
-const q1Answer = document.querySelector('input[name="q1"]:checked');
-const q2Answer = document.querySelector('input[name="q2"]:checked');
+    document.addEventListener('DOMContentLoaded', function() {
+  function submitForm() {
+    const form = document.getElementById('qcm-form');
 
-// Log the selected values for debugging
-console.log('q1Answer:', q1Answer ? q1Answer.value : null);
-console.log('q2Answer:', q2Answer ? q2Answer.value : null);
+    // Get the selected values
+    const q1Answer = document.querySelector('input[name="q1"]:checked');
+    const q2Answer = document.querySelector('input[name="q2"]:checked');
 
-// Check if both questions are answered
-if (q1Answer && q2Answer) {
- // Store the answers in localStorage
- localStorage.setItem('q1Answer', q1Answer.value);
- localStorage.setItem('q2Answer', q2Answer.value);
+    // Log the selected values for debugging
+    console.log('q1Answer:', q1Answer ? q1Answer.value : null);
+    console.log('q2Answer:', q2Answer ? q2Answer.value : null);
 
-}
-function abortForm() {
-      const form = document.getElementById('qcm-form');
-      form.reset();
+    // Check if both questions are answered
+    if (q1Answer && q2Answer) {
+      // Store the answers in localStorage
+      localStorage.setItem('q1Answer', q1Answer.value);
+      localStorage.setItem('q2Answer', q2Answer.value);
 
-      // Clear the data in localStorage
-      localStorage.removeItem('q1Answer');
-      localStorage.removeItem('q2Answer');
+      // Check answers and display result
+      const resultContainer = document.getElementById('result-container');
+      resultContainer.innerHTML = ''; // Clear previous results
+
+      // Question 1
+      const q1Result = document.createElement('p');
+      q1Result.textContent = q1Answer.value === '2' ? 'gj' : 'bj';
+      resultContainer.appendChild(q1Result);
+
+      // Question 2
+      const q2Result = document.createElement('p');
+      q2Result.textContent = q2Answer.value === '4' ? 'gj' : 'bj';
+      resultContainer.appendChild(q2Result);
     }
+  }
 
-    document.getElementById('submitBtn').addEventListener('click', submitForm);
-    document.getElementById('resetBtn').addEventListener('click', abortForm);
-  });
+  function abortForm() {
+    const form = document.getElementById('qcm-form');
+    form.reset();
 
+    // Clear the data in localStorage
+    localStorage.removeItem('q1Answer');
+    localStorage.removeItem('q2Answer');
+
+    // Clear the result container
+    const resultContainer = document.getElementById('result-container');
+    resultContainer.innerHTML = '';
+  }
+
+  document.getElementById('submitBtn').addEventListener('click', submitForm);
+  document.getElementById('resetBtn').addEventListener('click', abortForm);
+});
 
 </script>
 
