@@ -204,3 +204,9 @@ function diffnumbaseop(){
             }
             break;
     }
+
+
+    if (document.getElementById("result1")) {
+        document.getElementById("result1").textContent = result;
+    }
+}
