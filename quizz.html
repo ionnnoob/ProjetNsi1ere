@@ -1,138 +1,274 @@
-
+<!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="Styles/p.css">
-  <link rel="stylesheet" type="text/css" href="Styles/QuizzesStyle.css">
+  <title>JavaScript Quiz App</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      text-align: center;
-    }
-    #questionnaire-container {
-      border: 2px solid #000;
-      padding: 10px;
-      width: 400px;
-      margin: auto;
-      height: 650px;
-      max-width: 400px;
-      width: 100%;
-      margin-top: 100px;
-    }
-    .question {
-      margin-bottom: 20px;
-    }
-    button {
-      padding: 10px;
-      cursor: pointer;
-    }
-    a {
-      text-decoration: none;
-    }
-    label {
-      cursor: s-resize;
-      color: white;
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #b9b3a9;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 450px;
+  padding: 20px;
+  margin-top: 80px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.question {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.options {
+  margin-bottom: 20px;
+}
+
+.option {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #428bca;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+  margin-right: 10px;
+}
+
+.button:hover {
+  background-color: #3071a9;
+}
+
+.result {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.hide{
+  display: none;
+}
   </style>
 </head>
-
- <body>
-  <div>
-    <div class="animated-box box1">
-      <a href="index.html" class="buttonlink1" style="background:#27805f;">Accueil</a>
-      <a href="inscription.html" class="buttonlink1" style="left:92%;background-color: #27805f;    vertical-align: middle;">S'Inscrire</a>
-    </div>
+<body>
+  <div class="container">
+    <h1>Quiz App</h1>
+    <div id="quiz"></div>
+    <div id="result" class="result"></div>
+    <button id="submit" class="button">Submit</button>
+    <button id="retry" class="button hide">Retry</button>
+    <button id="showAnswer" class="button hide">Show Answer</button>
   </div>
+  <script>
+    const quizData = [
+  {
+    question: 'Combien de persone ont travailé sur ce site?',
+    options: ['1', '4', '3', '2,5'],
+    answer: '4',
+  },
+  {
+    question: 'Quelle est le pire continent sur terre?',
+    options: ['Europe', 'Afrique', 'Amerique du nord', 'Asie'],
+    answer: 'Amerique du nord',
+  },
+  {
+    question: 'Quelle pays a gagné la coupe du monde 2018?',
+    options: ['Brazil', 'Allemagne', 'France', 'Argentine'],
+    answer: 'France',
+  },
+  {
+    question: 'Qui est le meilleure dans ce group?',
+    options: ['Matthieu', 'Victor', 'Malo', 'Otto'],
+    answer: 'Matthieu',
+  },
+  {
+    question: 'Pourquoi ne faut-il pas verifier tout le code de ce site?',
+    options: [
+      'Il y a des parties illegal',
+      'C est trop mal codé',
+      'Il y a pas de commentaire donc c est illisible',
+      'Il faut tout verifier',
+    ],
+    answer: 'Il y a des parties illegal',
+  },
+  {
+    question: 'Combien Otta a dans son compte en banque?',
+    options: ['2k', '200', '0', '5K+'],
+    answer: '5k+',
+  },
+  {
+    question: 'Ce quizz est il intrusif?',
+    options: [
+      'Oui',
+      'Non',
+      'Il fallait mieux verifié avant de rendre',
+      'Un peu',
+    ],
+    answer: 'Il fallait mieux verifié avant de rendre',
+  },
+  {
+    question: 'Combien de temps a passé Victor sur Hollow Knight en une semaine',
+    options: ['5 heures', '10 heures', '30 heures', '80 heures'],
+    answer: '80 heures',
+  },
+  {
+    question: 'Malo est-il Homosexuel?',
+    options: [
+      'Non absolument pas',
+      'Evidemment ca fait longtemps',
+      'Apres ce qu il c est passé il est devenue Homosexuel',
+      'Seulement pour les femboys',
+    ],
+    answer: 'Seulement pour les femboys',
+  },
+  {
+    question: 'After stand proud opened up his domain he said "are you youre strong because you are im you or are you the one who left it all behind and his overwhelming intensity because with this treasure I summon" the fingerer simply answered "nah I would win"?',
+    options: ['Im you', 'You are my special', 'Throughout heaven and earth, I alone am the honored one', 'Strongest yapper of today VS Strongest yapper of all time'],
+    answer: 'Strongest yapper of today VS Strongest yapper of all time',
+  },
+];
 
-  <div class="qcm" id="questionnaire-container1">
-    <h1>Questionnaire 1</h1>
-    <form id="qcm-form1">
+const quizContainer = document.getElementById('quiz');
+const resultContainer = document.getElementById('result');
+const submitButton = document.getElementById('submit');
+const retryButton = document.getElementById('retry');
+const showAnswerButton = document.getElementById('showAnswer');
 
-      <!-- Question 1 -->
-      <div class="question">
-        <p>Combien de personnes ont travaillées sur ce site magnifique</p>
-        <label>
-          <input type="radio" name="q1" value="1"> 4
-        </label>
-        <label>
-          <input type="radio" name="q1" value="2"> 2
-        </label>
-        <label>
-          <input type="radio" name="q1" value="3"> 3
-        </label>
-        <label>
-          <input type="radio" name="q1" value="4"> 1
-        </label>
-      </div>
-      <div>
-        <button type="button" id="resetBtn1" onclick="abortForm('q1')">Réinitialiser</button>
-        <button type="button" id="submitBtn1" onclick="submitForm('q1')">Valider vos réponses</button>
-      </div>
-      <div id="result-container1"></div>
-    </form>
-  </div>
+let currentQuestion = 0;
+let score = 0;
+let incorrectAnswers = [];
 
-  <div class="qcm" id="questionnaire-container2">
-    <h1>Questionnaire 2</h1>
-    <form id="qcm-form2">
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
 
-     
-      <div class="question">
-        <p>Combien de présidents de la républiques différents pendant la Ve République en France</p>
-        <label>
-          <input type="radio" name="q2" value="1"> 6
-        </label>
-        <label>
-          <input type="radio" name="q2" value="2"> 7
-        </label>
-        <label>
-          <input type="radio" name="q2" value="3"> 8
-        </label>
-        <label>
-          <input type="radio" name="q2" value="4"> 9
-        </label>
-      </div>
-      <div>
-        <button type="button" id="resetBtn2" onclick="abortForm('q2')">Réinitialiser</button>
-        <button type="button" id="submitBtn2" onclick="submitForm('q2')">Valider vos réponses</button>
-      </div>
-      <div id="result-container2"></div>
-    </form>
-  </div>
-  
-  <script type="text/javascript">
-  function submitForm(questionId) {
-    const form = document.getElementById(`qcm-form${questionId}`);
-    const resultContainer = document.getElementById(`result-container${questionId}`);
+function displayQuestion() {
+  const questionData = quizData[currentQuestion];
 
-    // Get selected answer
-    const selectedAnswer = [..form.elements].find(input => input.type === 'radio' && input.checked);
+  const questionElement = document.createElement('div');
+  questionElement.className = 'question';
+  questionElement.innerHTML = questionData.question;
 
-    if (selectedAnswer) {
-      // Display result in the result container
-      resultContainer.innerHTML = `Votre réponse : {selectedAnswer.value}`;
+  const optionsElement = document.createElement('div');
+  optionsElement.className = 'options';
+
+  const shuffledOptions = [...questionData.options];
+  shuffleArray(shuffledOptions);
+
+  for (let i = 0; i < shuffledOptions.length; i++) {
+    const option = document.createElement('label');
+    option.className = 'option';
+
+    const radio = document.createElement('input');
+    radio.type = 'radio';
+    radio.name = 'quiz';
+    radio.value = shuffledOptions[i];
+
+    const optionText = document.createTextNode(shuffledOptions[i]);
+
+    option.appendChild(radio);
+    option.appendChild(optionText);
+    optionsElement.appendChild(option);
+  }
+
+  quizContainer.innerHTML = '';
+  quizContainer.appendChild(questionElement);
+  quizContainer.appendChild(optionsElement);
+}
+
+function checkAnswer() {
+  const selectedOption = document.querySelector('input[name="quiz"]:checked');
+  if (selectedOption) {
+    const answer = selectedOption.value;
+    if (answer === quizData[currentQuestion].answer) {
+      score++;
     } else {
-      // If no answer is selected, display a message
-      resultContainer.innerHTML = 'Veuillez sélectionner une réponse.';
+      incorrectAnswers.push({
+        question: quizData[currentQuestion].question,
+        incorrectAnswer: answer,
+        correctAnswer: quizData[currentQuestion].answer,
+      });
+    }
+    currentQuestion++;
+    selectedOption.checked = false;
+    if (currentQuestion < quizData.length) {
+      displayQuestion();
+    } else {
+      displayResult();
     }
   }
+}
 
-  function abortForm(questionId) {
-    const form = document.getElementById(`qcm-form${questionId}`);
-    const resultContainer = document.getElementById(`result-container${questionId}`);
+function displayResult() {
+  quizContainer.style.display = 'none';
+  submitButton.style.display = 'none';
+  retryButton.style.display = 'inline-block';
+  showAnswerButton.style.display = 'inline-block';
+  resultContainer.innerHTML = `You scored ${score} out of ${quizData.length}!`;
+}
 
-    // Clear the result container
-    resultContainer.innerHTML = '';
+function retryQuiz() {
+  currentQuestion = 0;
+  score = 0;
+  incorrectAnswers = [];
+  quizContainer.style.display = 'block';
+  submitButton.style.display = 'inline-block';
+  retryButton.style.display = 'none';
+  showAnswerButton.style.display = 'none';
+  resultContainer.innerHTML = '';
+  displayQuestion();
+}
 
-    // Reset radio buttons
-    const radioButtons = form.querySelectorAll('input[type="radio"]');
-    radioButtons.forEach(button (button.checked = false));
+function showAnswer() {
+  quizContainer.style.display = 'none';
+  submitButton.style.display = 'none';
+  retryButton.style.display = 'inline-block';
+  showAnswerButton.style.display = 'none';
+
+  let incorrectAnswersHtml = '';
+  for (let i = 0; i < incorrectAnswers.length; i++) {
+    incorrectAnswersHtml += `
+      <p>
+        <strong>Question:</strong> ${incorrectAnswers[i].question}<br>
+        <strong>Your Answer:</strong> ${incorrectAnswers[i].incorrectAnswer}<br>
+        <strong>Correct Answer:</strong> ${incorrectAnswers[i].correctAnswer}
+      </p>
+    `;
   }
-</script>
 
+  resultContainer.innerHTML = `
+    <p>You scored ${score} out of ${quizData.length}!</p>
+    <p>Incorrect Answers:</p>
+    ${incorrectAnswersHtml}
+  `;
+}
 
+submitButton.addEventListener('click', checkAnswer);
+retryButton.addEventListener('click', retryQuiz);
+showAnswerButton.addEventListener('click', showAnswer);
+
+displayQuestion();
+  </script>
 </body>
 </html>
 
