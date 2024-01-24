@@ -1,7 +1,6 @@
-<!DOCTYPE html>
 <html>
 <head>
-  <title>JavaScript Quiz App</title>
+  <title>JavaScript Quiz</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 
@@ -68,15 +67,18 @@ h1 {
   </style>
 </head>
 <body>
+  <!--Main div for outline of questions -->
   <div class="container">
     <h1>Quiz App</h1>
     <div id="quiz"></div>
     <div id="result" class="result"></div>
     <button id="submit" class="button">Submit</button>
+       <!--Shows up at the end thanks to its class -->
     <button id="retry" class="button hide">Retry</button>
     <button id="showAnswer" class="button hide">Show Answer</button>
   </div>
   <script>
+    //This will thnx to code later be added to the divs up top
     const quizData = [
   {
     question: 'Combien de persone ont travailé sur ce site?',
@@ -145,40 +147,52 @@ h1 {
   },
 ];
 
+  //These contants act as the buttons and the quizz itself, this is how the code changes everything, by obtaining these the code can see
 const quizContainer = document.getElementById('quiz');
 const resultContainer = document.getElementById('result');
 const submitButton = document.getElementById('submit');
 const retryButton = document.getElementById('retry');
 const showAnswerButton = document.getElementById('showAnswer');
 
+//let pretty much assigns the numbers or list to the variable
 let currentQuestion = 0;
 let score = 0;
 let incorrectAnswers = [];
 
+//This makes it so that the questions appear randomly
 function shuffleArray(array) {
+  //for i = the length of answers - 1 as long as 1 is over 0 then i-
   for (let i = array.length - 1; i > 0; i--) {
+    // j = random number times i + 1
     const j = Math.floor(Math.random() * (i + 1));
+    //Makes them commutative
     [array[i], array[j]] = [array[j], array[i]];
   }
 }
-
+//This code will put the code in the divs
 function displayQuestion() {
+  //this uses quizzdata of the current question(built in function) and adds it to a function
   const questionData = quizData[currentQuestion];
-
+  
+  //more or less the same thing but with different info and constants(Unchangeble variable)
   const questionElement = document.createElement('div');
   questionElement.className = 'question';
   questionElement.innerHTML = questionData.question;
-
+  
+  //does the same as the one ontop but for the options and not the questions
   const optionsElement = document.createElement('div');
   optionsElement.className = 'options';
 
+  //uses code that shuffles the number on top and applies it
   const shuffledOptions = [...questionData.options];
   shuffleArray(shuffledOptions);
 
+  //for i = 0 or i is inferior to the shuffle length then +i
   for (let i = 0; i < shuffledOptions.length; i++) {
     const option = document.createElement('label');
     option.className = 'option';
 
+    //Checks for the input that the user put in and then unshuffles it
     const radio = document.createElement('input');
     radio.type = 'radio';
     radio.name = 'quiz';
@@ -195,14 +209,16 @@ function displayQuestion() {
   quizContainer.appendChild(questionElement);
   quizContainer.appendChild(optionsElement);
 }
-
+//This code is used to check the answer's validity 
 function checkAnswer() {
   const selectedOption = document.querySelector('input[name="quiz"]:checked');
+  //if user selected option = quizzData(right answer) then score +1
   if (selectedOption) {
     const answer = selectedOption.value;
     if (answer === quizData[currentQuestion].answer) {
       score++;
     } else {
+      //if not then variable incorect answer becomes the answer. This is to show how wrong u were at the end
       incorrectAnswers.push({
         question: quizData[currentQuestion].question,
         incorrectAnswer: answer,
@@ -218,7 +234,7 @@ function checkAnswer() {
     }
   }
 }
-
+//changes the screen to display the results by modifying css 
 function displayResult() {
   quizContainer.style.display = 'none';
   submitButton.style.display = 'none';
@@ -227,6 +243,7 @@ function displayResult() {
   resultContainer.innerHTML = `You scored ${score} out of ${quizData.length}!`;
 }
 
+//Resets all variables and css and then starts the displayQuestion() function
 function retryQuiz() {
   currentQuestion = 0;
   score = 0;
@@ -239,13 +256,16 @@ function retryQuiz() {
   displayQuestion();
 }
 
+//on click shows the answer previously extracted from dataQuizz
 function showAnswer() {
   quizContainer.style.display = 'none';
   submitButton.style.display = 'none';
   retryButton.style.display = 'inline-block';
   showAnswerButton.style.display = 'none';
 
+  //variable of incorrect answer is set to nothing, then checks all incorect answers, extracts their questions and their correct anwsers from dataQuizz then uses text to show all the incorect answers
   let incorrectAnswersHtml = '';
+  //If i is inferior to the number of incorrect answers then i +
   for (let i = 0; i < incorrectAnswers.length; i++) {
     incorrectAnswersHtml += `
       <p>
@@ -255,7 +275,7 @@ function showAnswer() {
       </p>
     `;
   }
-
+//changes result container
   resultContainer.innerHTML = `
     <p>You scored ${score} out of ${quizData.length}!</p>
     <p>Incorrect Answers:</p>
@@ -267,6 +287,7 @@ submitButton.addEventListener('click', checkAnswer);
 retryButton.addEventListener('click', retryQuiz);
 showAnswerButton.addEventListener('click', showAnswer);
 
+//once evertthing finished displayQuestuibs again
 displayQuestion();
   </script>
 </body>
