@@ -172,9 +172,6 @@ function shuffleArray(array) {
 }
 //This code will put the code in the divs
 function displayQuestion() {
-  
-    document.querySelector('.container').style.maxHeight = '340px';
-    document.querySelector('.container').style.marginTop = '200px';
     //if its the last question then change the height and margin to be able to see the question
      if (currentQuestion === quizData.length - 1) {
       document.querySelector('.container').style.maxHeight = 'auto'; 
