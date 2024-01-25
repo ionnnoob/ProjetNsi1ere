@@ -6,44 +6,55 @@
 
 </head>
 <body>
+
+
     <div>
         <div class="animated-box box1"></div> <!--see how its outside of the first box-->
         <a href="index.html" class="buttonlink1" style="background:#27805f;">Acceuil</a>
         <a href = "inscription.html" class="buttonlink1" style="left:92%;background-color: #27805f;    vertical-align: middle;" >S'Inscrire</a>
     </div>
+
+
     <div>
-        <div class="animated-box" class="animated-box" style="position: relative; left:20%;top :20%;height:750px; width:60%;outline: 3px solid black; top :20px;border-radius: 5%;"></div>
-        <div>
-            <p >Base d'entree    :</p>
-            <select name="Base" id="entrybase" class="selector" style="top:20%;">
-                <option value="0">Selectionnner une base</option>
-                <option value="2">Base 2</option>
-                <option value="10">Base 10</option>
-                <option value="16">Base 16</option>            
-            </select>
-        </div>
-        <div>
-            <p style="top :34%">Numero d'entree   :</p>
-            <input style="position:absolute;top: 37%; left: 50%;height: 50px;border-radius: 10px;" id="numinput">
-        </div>
-        <div>
-            <p style="top: 47.5%;">Base de sortie    :</p>
-            <select name="Base" id="exitbase" class="selector" style="top: 50%;">
-                <option value="0">Selectionnner une base</option>
-                <option value="2">Base 2</option>
-                <option value="10">Base 10</option>
-                <option value="16">Base 16</option>            
-            </select>
-        </div>
-        <button onclick="changenumbase()" class="button1">Convertir</button>
-        <div>
-            <p style="top: 70%;">Resultat: <span id="result"></span></p>
-        </div>
-    </div>
-    <div>
-        <div class="animated-box" class="animated-box" style="position: relative; left:20%;top :20%;height: 900px; width:60%;outline: 3px solid black; top :20px;border-radius: 5%;">
+        <div class="animated-box box2" id="div1" style="position: relative; left:20%;top :20%;height:750px; width:60%;outline: 3px solid black; top :20px;border-radius: 5%; background-color: white; display: block;">
+            <p style="top: 3%; font-size: 32px; color: black; left:30%; font-weight: 900px;"><u>Convertissement de Base</u></p>
+            <button onclick="toggleDivs()" style="color:white; background-color: #020b2d; position: absolute; top :14%; left: 30%; width :40%; height: 40px; border-radius: 10px;"> Changer de mode</button>
             <div>
-                <p >Base de calcul  :</p>
+                <p style="color: black; left: 10%;">Base d'entree    :</p>
+                <select name="Base" id="entrybase" class="selector" style="top:20%;left:75%;">
+                    <option value="0">Selectionnner une base</option>
+                    <option value="2">Base 2</option>
+                    <option value="10">Base 10</option>
+                    <option value="16">Base 16</option>            
+                </select>
+            </div>
+            <div>
+                <p style="top :34% ;color: black;left: 10%;">Numero d'entree   :</p>
+                <input style="position:absolute;top: 37%; left: 75%;height: 50px;border-radius: 10px; color: black;" id="numinput">
+            </div>
+            <div>
+                <p style="top: 47.5%;color: black;left: 10%;">Base de sortie    :</p>
+                <select name="Base" id="exitbase" class="selector" style="top: 50%; left: 75%;">
+                    <option value="0">Selectionnner une base</option>
+                    <option value="2">Base 2</option>
+                    <option value="10">Base 10</option>
+                    <option value="16">Base 16</option>         
+                </select>
+            </div>
+            <button onclick="changenumbase()" class="button1" style="top:65%;">Convertir</button>
+            <div>
+                <p style="top: 80%;color: black;">Resultat: <span id="result"></span></p>
+            </div>
+        </div>
+        
+    </div>
+
+    <div>
+        <div class="animated-box" id="div2" style="position: relative; left:20%;top :20%;height: 750px; width:60%;outline: 3px solid black; top :20px;border-radius: 5%;display: none; background-color: white;">
+            <p style="top: 3%; font-size: 32px; color: black; left:30%; font-weight: 900px;"><u>Calculations en base 2 et 16</u></p>
+            <button onclick="toggleDivs()" style="color:white; background-color: #020b2d; position: absolute; top :14%; left: 30%; width :40%; height: 40px; border-radius: 10px;"> Changer de mode</button>
+            <div>
+                <p  style="color: black; left :10%;">Base de calcul  :</p>
                 <select name="Base" id="numbase" class="selector" style="left :75%;">
                     <option value="0">Selectionnner une base</option>
                     <option value="2">Base 2</option>
@@ -51,13 +62,13 @@
                 </select>
             </div>
             <div>
-                <p style="top :34%">Numero d'entree  1 :</p>
+                <p style="top :34%;color: black; left :10%;">Numero d'entree  1 :</p>
                 <input style="position:absolute;top: 37%; left: 75%;height: 50px;border-radius: 10px;" id="in1">
-                <p style="top :53%">Numero d'entree  2:</p>
+                <p style="top :53%;color: black;left :10%;">Numero d'entree  2:</p>
                 <input style="position:absolute;top: 55%; left: 75%;height: 50px;border-radius: 10px;" id="in2">
             </div>
-            <div>
-                <p style="top: 70%;">operation:</p>
+            <div>;
+                <p style="top: 70%;color: black;left :10%;">operation:</p>
                 <select name="Base" id="operation" class="selector" style="top: 70%; left :75%;">
                     <option value="0">Selectionnner une operation</option>
                     <option value="1">addition</option>
