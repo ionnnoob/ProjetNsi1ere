@@ -172,6 +172,14 @@ function shuffleArray(array) {
 }
 //This code will put the code in the divs
 function displayQuestion() {
+  
+    document.querySelector('.container').style.height = '340px';
+    document.querySelector('.container').style.marginTop = '200px';
+    //if its the last question then change the height and margin to be able to see the question
+     if (currentQuestion === quizData.length - 1) {
+      document.querySelector('.container').style.height = 'auto'; 
+      document.querySelector('.container').style.marginTop = '150px'; 
+    }
   //this uses quizzdata of the current question(built in function) and adds it to a function
   const questionData = quizData[currentQuestion];
   
@@ -237,6 +245,11 @@ function checkAnswer() {
 }
 //changes the screen to display the results by modifying css 
 function displayResult() {
+
+  // Update the styles for the container when displaying results
+    document.querySelector('.container').style.height = 'auto';
+    document.querySelector('.container').style.marginTop = '75px';
+  
   quizContainer.style.display = 'none';
   submitButton.style.display = 'none';
   retryButton.style.display = 'inline-block';
@@ -246,6 +259,10 @@ function displayResult() {
 
 //Resets all variables and css and then starts the displayQuestion() function
 function retryQuiz() {
+  // Set the default styles for the container when retrying the quiz
+  document.querySelector('.container').style.height = '340px';
+  document.querySelector('.container').style.marginTop = '200px';
+  
   currentQuestion = 0;
   score = 0;
   incorrectAnswers = [];
