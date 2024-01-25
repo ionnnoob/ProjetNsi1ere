@@ -97,3 +97,34 @@
         border-radius: 5px;
     }
 } 
+
+.togglebutton{
+        transition: background-color 0.5s ease;
+        color:white;
+        background-color: #020b2d;
+        position: absolute;
+        top :14%;
+        left: 30%; 
+        width :40%; 
+        height: 40px; 
+        border-radius: 10px;
+    }
+    .togglebutton:hover{
+        background-color:  #15659c;
+    }
+    .calculatebutton{
+        transition: background-color 0.5s ease;
+        top:80%;
+        position: relative;
+        left:37.5%;
+        height: 100px;
+        width:400px;
+        border-radius: 10px;
+        outline: black 3px solid;
+        font-size: 24px;
+        background-color: #428bca;
+        color: white;
+    }
+    .calculatebutton:hover{ 
+        background-color: #020b2d;
+    }
