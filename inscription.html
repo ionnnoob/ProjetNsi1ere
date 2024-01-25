@@ -5,19 +5,20 @@
     <link rel="stylesheet" type="text/css" href="Styles/p.css">
     <link rel="stylesheet" type="text/css" href="Styles/style.css">
     <title>Inscription Page</title>
-    <style>
+     <style>
         .animated-box {
             display: flex;
             justify-content: center;
             margin-left: 10%;
         }
 
-        .Icon{
+        .Icon {
             max-height: 20px;
         }
+
         .body-1 {
             font-family: Arial, sans-serif;
-            background-color:rgb(5, 45, 54) ;
+            background-color: rgb(5, 45, 54);
             padding: 0;
             display: flex;
             align-items: center;
@@ -27,7 +28,7 @@
 
         .inscription-container {
             text-align: center;
-            background-color:rgb(3, 26, 31) ;
+            background-color: rgb(3, 26, 31);
             border-radius: 8px;
             box-shadow: #FFFF;
             padding: 20px;
@@ -45,13 +46,16 @@
             color: #888;
             font-size: 20px;
         }
+
         button {
-            font-size: 1.2em; 
+            font-size: 1.2em;
         }
-        input{
+
+        input {
             margin-bottom: 10px;
             font-size: 2em;
         }
+
         .show-password {
             position: absolute;
             right: 10px;
@@ -64,10 +68,12 @@
             font-size: 1em;
             padding: 0;
         }
+
         .password-container {
             position: relative;
         }
-        .validation{
+
+        .validation {
             color: red;
             margin-top: 10px;
             font-size: 14px;
@@ -81,12 +87,7 @@
     </div>
     <a href="index.html" class="buttonlink1" style="background:#27805f;">Acceuil</a>
     <a href="inscription.html" class="buttonlink1" style="left:92%;background-color: #27805f;    vertical-align: middle;" >S'Inscrire</a>
-</div>
-</body>
-<body class="body-1">  
- 
-
-    
+    </div>    
 <!--This is the main div, englobing everything-->
 <div class="inscription-container">
     <h1>Inscription</h1>
@@ -140,7 +141,7 @@
     <div class="validation" id="validation-message"></div>
     <div class="validation" id="match-message"></div>
 </div>
-
+</body>
 <!--this java script checks the element id, if its password then it changes it to text, and if its text it changes it to password-->
 <script>
     function togglePasswordVisibility(inputId, imageId) {
