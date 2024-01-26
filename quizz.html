@@ -186,14 +186,14 @@ function displayQuestion() {
     
     // Check if it's the last question, then adjust max-height and margin
     if (currentQuestion === quizData.length - 1) {
-        document.querySelector('.container').style.maxHeight = 'auto'; 
-        document.querySelector('.container').style.marginTop = '150px'; 
+        document.querySelector('.container').style.maxHeight = 'auto !important'; 
+        document.querySelector('.container').style.marginTop = '150px !important'; 
     }
 
     // Check if it's the second question, then adjust max-height and margin
     if (currentQuestion === 1) {
-        document.querySelector('.container').style.maxHeight = 'auto';
-        document.querySelector('.container').style.marginTop = '150px';
+        document.querySelector('.container').style.maxHeight = 'auto !important';
+        document.querySelector('.container').style.marginTop = '150px !important';
     }
 
     const questionData = quizData[currentQuestion];
