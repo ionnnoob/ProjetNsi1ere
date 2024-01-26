@@ -96,7 +96,7 @@ h1 {
   },
   {
     question: 'Hakari never acquired reverse cursed technique but... the infinite cursed energy overflowing in Hakaris body caused his body to reflexively perform reverse cursed technique in order to avoid damage.',
-    options: ['In other words in the 4 minutes and 11 seconds following a jackpot Hakari is effectively immortal', 'In other words in the 4 minutes and 11 seconds following a jackpot, Hakari is better', 'Hakari luck has finally run out', 'Dead'],
+    options: ['In other words in the 4 minutes and 11 seconds following a jackpot Hakari is effectively immortal', 'In other words in the 4 minutes and 11 seconds following a jackpot, Hakari is better', 'Hakari luck has finally run out', 'Always bet on Hakari'],
     answer: 'In other words in the 4 minutes and 11 seconds following a jackpot Hakari is effectively immortal',
   },
   {
@@ -185,6 +185,10 @@ function displayQuestion() {
       document.querySelector('.container').style.maxheight = 'auto'; 
       document.querySelector('.container').style.marginTop = '150px'; 
     }
+
+    if (currentQuestion === 1) {
+        document.querySelector('.container').style.maxheight = 'auto';
+        document.querySelector('.container').style.marginTop = '150px';
   //this uses quizzdata of the current question(built in function) and adds it to a function
   const questionData = quizData[currentQuestion];
   
