@@ -180,53 +180,53 @@ function shuffleArray(array) {
 }
 //This code will put the code in the divs
 function displayQuestion() {
-    // Reset max-height and margin for each question
-    document.querySelector('.container').style.maxHeight = '340px';
-    document.querySelector('.container').style.marginTop = '200px';
-    
-    // Check if it's the last question, then adjust max-height and margin
-    if (currentQuestion === quizData.length - 1) {
-        document.querySelector('.container').style.maxHeight = 'auto !important'; 
-        document.querySelector('.container').style.marginTop = '150px !important'; 
+        // Reset max-height and margin for each question
+        document.querySelector('.container').style.maxHeight = '340px';
+        document.querySelector('.container').style.marginTop = '200px';
+
+        // Check if it's the last question, then adjust max-height and margin
+        if (currentQuestion === quizData.length - 1) {
+            document.querySelector('.container').style.maxHeight = 'auto';
+            document.querySelector('.container').style.marginTop = '150px';
+        }
+
+        // Check if it's the second question, then adjust max-height and margin
+        if (currentQuestion === 1) {
+            document.querySelector('.container').style.maxHeight = 'auto';
+            document.querySelector('.container').style.marginTop = '150px';
+        }
+
+        const questionData = quizData[currentQuestion];
+        const questionElement = document.createElement('div');
+        questionElement.className = 'question';
+        questionElement.innerHTML = questionData.question;
+
+        const optionsElement = document.createElement('div');
+        optionsElement.className = 'options';
+
+        const shuffledOptions = [...questionData.options];
+        shuffleArray(shuffledOptions);
+
+        for (let i = 0; i < shuffledOptions.length; i++) {
+            const option = document.createElement('label');
+            option.className = 'option';
+
+            const radio = document.createElement('input');
+            radio.type = 'radio';
+            radio.name = 'quiz';
+            radio.value = shuffledOptions[i];
+
+            const optionText = document.createTextNode(shuffledOptions[i]);
+
+            option.appendChild(radio);
+            option.appendChild(optionText);
+            optionsElement.appendChild(option);
+        }
+
+        quizContainer.innerHTML = '';
+        quizContainer.appendChild(questionElement);
+        quizContainer.appendChild(optionsElement);
     }
-
-    // Check if it's the second question, then adjust max-height and margin
-    if (currentQuestion === 1) {
-        document.querySelector('.container').style.maxHeight = 'auto !important';
-        document.querySelector('.container').style.marginTop = '150px !important';
-    }
-
-    const questionData = quizData[currentQuestion];
-    const questionElement = document.createElement('div');
-    questionElement.className = 'question';
-    questionElement.innerHTML = questionData.question;
-  
-    const optionsElement = document.createElement('div');
-    optionsElement.className = 'options';
-
-    const shuffledOptions = [...questionData.options];
-    shuffleArray(shuffledOptions);
-
-    for (let i = 0; i < shuffledOptions.length; i++) {
-        const option = document.createElement('label');
-        option.className = 'option';
-
-        const radio = document.createElement('input');
-        radio.type = 'radio';
-        radio.name = 'quiz';
-        radio.value = shuffledOptions[i];
-
-        const optionText = document.createTextNode(shuffledOptions[i]);
-
-        option.appendChild(radio);
-        option.appendChild(optionText);
-        optionsElement.appendChild(option);
-    }
-
-    quizContainer.innerHTML = '';
-    quizContainer.appendChild(questionElement);
-    quizContainer.appendChild(optionsElement);
-}
 //This code is used to check the answer's validity 
 function checkAnswer() {
   const selectedOption = document.querySelector('input[name="quiz"]:checked');
@@ -285,30 +285,44 @@ function retryQuiz() {
 
 //on click shows the answer previously extracted from dataQuizz
 function showAnswer() {
-  quizContainer.style.display = 'none';
-  submitButton.style.display = 'none';
-  retryButton.style.display = 'inline-block';
-  showAnswerButton.style.display = 'none';
+        // Reset max-height and margin for each question
+        document.querySelector('.container').style.maxHeight = '340px';
+        document.querySelector('.container').style.marginTop = '200px';
 
-  //variable of incorrect answer is set to nothing, then checks all incorect answers, extracts their questions and their correct anwsers from dataQuizz then uses text to show all the incorect answers
-  let incorrectAnswersHtml = '';
-  //If i is inferior to the number of incorrect answers then i +
-  for (let i = 0; i < incorrectAnswers.length; i++) {
-    incorrectAnswersHtml += `
-      <p>
-        <strong>Question:</strong> ${incorrectAnswers[i].question}<br>
-        <strong>Your Answer:</strong> ${incorrectAnswers[i].incorrectAnswer}<br>
-        <strong>Correct Answer:</strong> ${incorrectAnswers[i].correctAnswer}
-      </p>
-    `
-  }
-//changes result container
-  resultContainer.innerHTML = `
-    <p>You scored ${score} out of ${quizData.length}!</p>
-    <p>Incorrect Answers:</p>
-    ${incorrectAnswersHtml}
-  `;
-}
+        // Check if it's the last question, then adjust max-height and margin
+        if (currentQuestion === quizData.length - 1) {
+            document.querySelector('.container').style.maxHeight = 'auto';
+            document.querySelector('.container').style.marginTop = '150px';
+        }
+
+        // Check if it's the second question, then adjust max-height and margin
+        if (currentQuestion === 1) {
+            document.querySelector('.container').style.maxHeight = 'auto';
+            document.querySelector('.container').style.marginTop = '150px';
+        }
+
+        quizContainer.style.display = 'none';
+        submitButton.style.display = 'none';
+        retryButton.style.display = 'inline-block';
+        showAnswerButton.style.display = 'none';
+
+        let incorrectAnswersHtml = '';
+        for (let i = 0; i < incorrectAnswers.length; i++) {
+            incorrectAnswersHtml += `
+                <p>
+                    <strong>Question:</strong> ${incorrectAnswers[i].question}<br>
+                    <strong>Your Answer:</strong> ${incorrectAnswers[i].incorrectAnswer}<br>
+                    <strong>Correct Answer:</strong> ${incorrectAnswers[i].correctAnswer}
+                </p>
+            `
+        }
+
+        resultContainer.innerHTML = `
+            <p>You scored ${score} out of ${quizData.length}!</p>
+            <p>Incorrect Answers:</p>
+            ${incorrectAnswersHtml}
+        `;
+    }
 
 submitButton.addEventListener('click', checkAnswer);
 retryButton.addEventListener('click', retryQuiz);
