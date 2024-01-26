@@ -182,12 +182,12 @@ function shuffleArray(array) {
 function displayQuestion() {
     //if its the last question then change the height and margin to be able to see the question
      if (currentQuestion === quizData.length - 1) {
-      document.querySelector('.container').style.maxheight = 'auto'; 
+      document.querySelector('.container').style.maxHeight = 'auto'; 
       document.querySelector('.container').style.marginTop = '150px'; 
     }
 
     if (currentQuestion === 1) {
-        document.querySelector('.container').style.maxheight = 'auto';
+        document.querySelector('.container').style.maxHeight = 'auto';
         document.querySelector('.container').style.marginTop = '150px';
   //this uses quizzdata of the current question(built in function) and adds it to a function
   const questionData = quizData[currentQuestion];
@@ -256,7 +256,7 @@ function checkAnswer() {
 function displayResult() {
 
   // Update the styles for the container when displaying results
-    document.querySelector('.container').style.maxheight = 'auto';
+    document.querySelector('.container').style.maxHeight = 'auto';
     document.querySelector('.container').style.marginTop = '75px';
   
   quizContainer.style.display = 'none';
@@ -269,7 +269,7 @@ function displayResult() {
 //Resets all variables and css and then starts the displayQuestion() function
 function retryQuiz() {
   // Set the default styles for the container when retrying the quiz
-  document.querySelector('.container').style.maxheight = '340px';
+  document.querySelector('.container').style.maxHeight = '340px';
   document.querySelector('.container').style.marginTop = '200px';
   
   currentQuestion = 0;
