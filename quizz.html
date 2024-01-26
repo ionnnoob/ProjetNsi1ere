@@ -180,15 +180,15 @@ function shuffleArray(array) {
 }
 //This code will put the code in the divs
 function displayQuestion() {
-        // Reset max-height and margin for each question
-        document.querySelector('.container').style.maxHeight = '340px';
-        document.querySelector('.container').style.marginTop = '200px';
+       // Reset max-height and margin for each question
+      document.querySelector('.container').style.maxHeight = '340px';
+      document.querySelector('.container').style.marginTop = '200px';
 
         // Check if it's the last question, then adjust max-height and margin
-        if (currentQuestion === quizData.length - 1) {
-            document.querySelector('.container').style.maxHeight = 'auto';
-            document.querySelector('.container').style.marginTop = '150px';
-        }
+      if (currentQuestion === quizData.length - 1) {
+        document.querySelector('.container').style.maxHeight = 'auto';
+        document.querySelector('.container').style.marginTop = '150px';
+      }
 
         // Check if it's the second question, then adjust max-height and margin
         if (currentQuestion === 1) {
