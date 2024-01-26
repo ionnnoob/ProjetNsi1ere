@@ -10,9 +10,137 @@
         <script type="text/javascript" src="Scripts/qcm.js"></script>
         <!-- CSS code -->
 
-<style>
+@media screen and (max-width: 900px){
+    .box1 {
+        position:relative;
+        top:10px;
+        color:rgb(227, 209, 209);
+        height:50px;
+        outline:2px solid black;
+        border-radius: 7px;
+    }
+    .buttonlink1{
+        position: absolute;
+        top: 2.5%;
+        left: 25px;
+        height:40px;
+        width: 125px;
+        border-radius: 5%;
+        outline:1px solid rgb(0,0,0);
+        color:black;
+        text-align: center;
+        font-weight: bold;
+        font-size: large;
+        text-decoration: none;
+        vertical-align: middle;
+    }
+    body{
+        background-color:rgb(5, 45, 54) ;
+    }
+    .Tle{
+        background-color: #b53477;
+        height: 40px;
+        width: 300px;
+        border-radius: 10px;
+        text-align: center;
+        margin: auto;
+        margin-top: 100px;
+        padding: 4px;
+    }
 
-    
+    .buttonlink2{
+        position:absolute;
+        height:150px;
+        width:150px;
+        background-color:#15659c;
+    }
+    p {
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+    position: absolute;
+    top: 22%;
+    left: 35%;
+}
+}
+@media screen and (min-width: 900px){
+    .box1 {
+        position:relative;
+        top:10px;
+        color:rgb(227, 209, 209);
+        height:50px;
+        outline:2px solid black;
+        border-radius: 7px;
+    }
+    .buttonlink1{
+        position: absolute;
+        top: 2.5%;
+        left: 25px;
+        height:40px;
+        width: 125px;
+        border-radius: 5%;
+        outline:1px solid rgb(0,0,0);
+        color:black;
+        text-align: center;
+        font-weight: bold;
+        font-size: large;
+        text-decoration: none;
+        vertical-align: middle;
+    }
+    body{
+        background-color:#020b2d ;
+    }
+    .Tle{
+        background-color: #b53477;
+        height: 40px;
+        width: 300px;
+        border-radius: 10px;
+        text-align: center;
+        margin: auto;
+        margin-top: 100px;
+        padding: 4px;
+    }
+
+    .buttonlink2{
+        position:absolute;
+        height:37.5%;
+        width:25%;
+        background-color:#15659c;
+        left:20%;
+        top:5%;
+        text-decoration: none;
+        text-align: center;
+        vertical-align:midd;
+        color: black;
+        border-radius: 5%;
+        font-size: large;
+        font-weight: bold;
+    }
+    p {
+    font-weight: bold;
+    font-size: 32px;
+    color: white;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            background-color: #27805f;
+            padding: 10px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+} 
+             </style>
+    </head>
 
 
 
@@ -20,27 +148,27 @@
 
 
     <!-- HTML code -->
-    <div>
-    <div class="animated-box box1">
-        <img src="GOOO-modified.png" style="max-width:50px; max-height:50px; margin-left:50%">
+    <div class="navbar">
+        <a href="index.html">Accueil</a>
+        <!-- Add a spacer between links -->
+        <div></div>
+        <a href="inscription.html">S'Inscrire</a>
     </div>
-    <a href="index.html" class="buttonlink1" style="background:#27805f;">Acceuil</a>
-    <a href="inscription.html" class="buttonlink1" style="left:92%;background-color: #27805f;    vertical-align: middle;" >S'Inscrire</a>
-    </div>    
-
         
-        <p class="PTle">Cliquez sur le theme de votre choix</p>
-        <div class="animated-box" style="position: relative; left:20%;height: 700px; width:60%;outline: 3px solid black; top :20px;border-radius: 5%;">
+        <div class="Tle">
+            <p class="PTle">Cliquez sur le theme de votre choix</p>
+        </div>
+        <div class="animated-box" style="position: relative; left:20%;height: 700px; width:60%; top :20px;border-radius: 5%;">
             <a href="arithmetique_Binaire.html" class="buttonlink2">Arithmetique Binaire</a>
             <a href="menu_quizz.html" class="buttonlink2" style="top:60%;">QCM</a>
-            <a href="calcul_fractionnaire.html" class="buttonlink2" style="color: #15659c;left: 57%; color: black;">Calcul fractionnaire</a>
+            <a href="calcul_fractionnaire.html" class="buttonlink2" style="left: 57%;">Calcul fractionnaire</a>
             <a href="Forum.html" class="buttonlink2" style="left: 57%;top:60%;">Forum</a>
         </div>
-        <p style="top:910px; color: white; font-size:large;margin: auto;">
+        <p style="position: absolute; top:100%; color: white; font-size:large;">
             <br>
             <br>
             
-            <b>Site Créé par Cuanbinh-Michelon Matthieu, Pannelay Victor, Walrafen Malo, Plowman Otto</b>
+            <b>Message de Signature</b>
         </p>
     </body>
 </html>
