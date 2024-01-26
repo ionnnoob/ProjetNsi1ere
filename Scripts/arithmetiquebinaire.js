@@ -39,13 +39,25 @@ function changenumbase(){
         result = "Selectionner une base d'entree et de sortie";
     }
 
+    var bool2
+    var x
+    for(var i=0; i <= chararray.length; i++){
+        if(x =! 0 || x != 1){
+            bool2 = true;
+        }
+    }
+
     switch(combined){
         case "2-10":
-            for (var i = 0; i < chararray.length; i++){
-                numarray[i] = parseInt(chararray[i]) * (2 ** (chararray.length - 1 - i));
+            if(bool = true){
+                result = "Il y a un nombre non compatible avec la base choisi"
+                break;
             }
+            else {for (var i = 0; i < chararray.length; i++){
+                numarray[i] = parseInt(chararray[i]) * (2 ** (chararray.length - 1 - i));
             result = sum(numarray);
             break;
+            }}
         case "16-2":
         
             var binaryResult = '';
