@@ -180,77 +180,52 @@ function shuffleArray(array) {
 }
 //This code will put the code in the divs
 function displayQuestion() {
-       // Reset max-height and margin for each question
-      document.querySelector('.container').style.maxHeight = '340px';
-      document.querySelector('.container').style.marginTop = '200px';
+    // Reset max-height and margin for each question
+    document.querySelector('.container').style.maxHeight = '340px';
+    document.querySelector('.container').style.marginTop = '200px';
+    
+    // Check if it's the last question, then adjust max-height and margin
+    if (currentQuestion === quizData.length - 1) {
+        document.querySelector('.container').style.maxHeight = 'auto'; 
+        document.querySelector('.container').style.marginTop = '150px'; 
+    }
 
-        // Check if it's the last question, then adjust max-height and margin
-      if (currentQuestion === quizData.length - 1) {
+    // Check if it's the second question, then adjust max-height and margin
+    if (currentQuestion === 1) {
         document.querySelector('.container').style.maxHeight = 'auto';
         document.querySelector('.container').style.marginTop = '150px';
-      }
-
-        // Check if it's the second question, then adjust max-height and margin
-        if (currentQuestion === 1) {
-            document.querySelector('.container').style.maxHeight = 'auto';
-            document.querySelector('.container').style.marginTop = '150px';
-        }
-
-        const questionData = quizData[currentQuestion];
-        const questionElement = document.createElement('div');
-        questionElement.className = 'question';
-        questionElement.innerHTML = questionData.question;
-
-        const optionsElement = document.createElement('div');
-        optionsElement.className = 'options';
-
-        const shuffledOptions = [...questionData.options];
-        shuffleArray(shuffledOptions);
-
-        for (let i = 0; i < shuffledOptions.length; i++) {
-            const option = document.createElement('label');
-            option.className = 'option';
-
-            const radio = document.createElement('input');
-            radio.type = 'radio';
-            radio.name = 'quiz';
-            radio.value = shuffledOptions[i];
-
-            const optionText = document.createTextNode(shuffledOptions[i]);
-
-            option.appendChild(radio);
-            option.appendChild(optionText);
-            optionsElement.appendChild(option);
-        }
-
-        quizContainer.innerHTML = '';
-        quizContainer.appendChild(questionElement);
-        quizContainer.appendChild(optionsElement);
     }
-//This code is used to check the answer's validity 
-function checkAnswer() {
-  const selectedOption = document.querySelector('input[name="quiz"]:checked');
-  //if user selected option = quizzData(right answer) then score +1
-  if (selectedOption) {
-    const answer = selectedOption.value;
-    if (answer === quizData[currentQuestion].answer) {
-      score++;
-    } else {
-      //if not then variable incorect answer becomes the answer. This is to show how wrong u were at the end
-      incorrectAnswers.push({
-        question: quizData[currentQuestion].question,
-        incorrectAnswer: answer,
-        correctAnswer: quizData[currentQuestion].answer,
-      });
+
+    const questionData = quizData[currentQuestion];
+    const questionElement = document.createElement('div');
+    questionElement.className = 'question';
+    questionElement.innerHTML = questionData.question;
+  
+    const optionsElement = document.createElement('div');
+    optionsElement.className = 'options';
+
+    const shuffledOptions = [...questionData.options];
+    shuffleArray(shuffledOptions);
+
+    for (let i = 0; i < shuffledOptions.length; i++) {
+        const option = document.createElement('label');
+        option.className = 'option';
+
+        const radio = document.createElement('input');
+        radio.type = 'radio';
+        radio.name = 'quiz';
+        radio.value = shuffledOptions[i];
+
+        const optionText = document.createTextNode(shuffledOptions[i]);
+
+        option.appendChild(radio);
+        option.appendChild(optionText);
+        optionsElement.appendChild(option);
     }
-    currentQuestion++;
-    selectedOption.checked = false;
-    if (currentQuestion < quizData.length) {
-      displayQuestion();
-    } else {
-      displayResult();
-    }
-  }
+
+    quizContainer.innerHTML = '';
+    quizContainer.appendChild(questionElement);
+    quizContainer.appendChild(optionsElement);
 }
 //changes the screen to display the results by modifying css 
 function displayResult() {
