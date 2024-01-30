@@ -48,15 +48,11 @@ function changenumbase(){
 
     switch(combined){
         case "2-10":
-            if(bool2 = true){
-                result = "Il y a un nombre non compatible avec la base choisi"
-                break;
-            }
-            else {for (var i = 0; i < chararray.length; i++){
+            for (var i = 0; i < chararray.length; i++){
                 numarray[i] = parseInt(chararray[i]) * (2 ** (chararray.length - 1 - i));
             result = sum(numarray);
             break;
-            }}
+            }
         case "16-2":
         
             var binaryResult = '';
