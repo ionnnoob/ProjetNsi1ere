@@ -48,7 +48,7 @@ function changenumbase(){
 
     switch(combined){
         case "2-10":
-            if(bool = true){
+            if(bool2 = true){
                 result = "Il y a un nombre non compatible avec la base choisi"
                 break;
             }
