@@ -66,11 +66,12 @@ function diffnumbaseop() {
 
     switch(combined){
         case "2-10":
-            for (var i = 0; i < chararray.length; i++){
-                numarray[i] = parseInt(chararray[i]) * (2 ** (chararray.length - 1 - i));
-            result = sum(numarray);
-            break;
-            }
+        for (var i = 0; i < chararray.length; i++) {
+        numarray[i] = parseInt(chararray[i]) * (2 ** (chararray.length - 1 - i));
+    }
+    result = sum(numarray);
+    break;
+
         case "16-2":
         
             var binaryResult = '';
