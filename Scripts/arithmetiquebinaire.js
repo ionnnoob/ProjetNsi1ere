@@ -40,9 +40,8 @@ function changenumbase(){
     }
 
     var bool2
-    var x
     for(var i=0; i <= chararray.length; i++){
-        if(x =! 0 || x != 1){
+        if(chararay[i] =! 0 || chararay[i] != 1){
             bool2 = true;
         }
     }
