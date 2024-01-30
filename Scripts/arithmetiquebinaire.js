@@ -127,34 +127,36 @@ function diffnumbaseop() {
             break;
 
         case "2-16":
-            splits = splitString(number,4);
-            var hexresult = ''
-            for (var i = 0; i < splits.length; i++) {
-                switch (splits[i]) {
-                    case '0000': hexresult += '0'; break;
-                    case '0001': hexresult += '1'; break;
-                    case '0010': hexresult += '2'; break;
-                    case '0011': hexresult += '3'; break;
-                    case '0100': hexresult += '4'; break;
-                    case '0101': hexresult += '5'; break;
-                    case '0110': hexresult += '6'; break;
-                    case '0111': hexresult += '7'; break;
-                    case '1000': hexresult += '8'; break;
-                    case '1001': hexresult += '9'; break;
-                    case '1010': hexresult += 'A'; break;
-                    case '1011': hexresult += 'B'; break;
-                    case '1100': hexresult += 'C'; break;
-                    case '1101': hexresult += 'D'; break;
-                    case '1110': hexresult += 'E'; break;
-                    case '1111': hexresult += 'F'; break;
-                }
-            }
-            hexresult = hexresult.replace(/^0+/, '');
-           if (hexresult === '') {
-            hexresult = '0';
-            }
-            result = hexresult;
-            break;
+    splits = splitString(number, 4);
+    var hexresult = '';
+    for (var i = 0; i < splits.length; i++) {
+        switch (splits[i]) {
+            case '0000': hexresult += '0'; break;
+            case '0001': hexresult += '1'; break;
+            case '0010': hexresult += '2'; break;
+            case '0011': hexresult += '3'; break;
+            case '0100': hexresult += '4'; break;
+            case '0101': hexresult += '5'; break;
+            case '0110': hexresult += '6'; break;
+            case '0111': hexresult += '7'; break;
+            case '1000': hexresult += '8'; break;
+            case '1001': hexresult += '9'; break;
+            case '1010': hexresult += 'A'; break;
+            case '1011': hexresult += 'B'; break;
+            case '1100': hexresult += 'C'; break;
+            case '1101': hexresult += 'D'; break;
+            case '1110': hexresult += 'E'; break;
+            case '1111': hexresult += 'F'; break;
+        }
+    }
+    
+    hexresult = hexresult.replace(/^0+/, '');
+    
+    if (hexresult === '') {
+        hexresult = '0';
+    }
+    result = hexresult;
+    break;
 
 
 
