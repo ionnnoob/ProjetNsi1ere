@@ -6,45 +6,63 @@ function splitString(str, chunkSize) {
     return chunks;
 }
 
-
-function changenumbase(){
-    // Declaration of result and sum function
+function changenumbase() {
     var result;
-    function sum(array) {
-        var total = 0;
-        for (var i = 0; i < array.length; i++) {
-            total += array[i];
-        }
-        return total;
-    }
-
     var entrybase = document.getElementById("entrybase").value;
     var exitbase = document.getElementById("exitbase").value;
     var number = document.getElementById("numinput").value;
-
     var zero = "0";
     
-    while(number.length%4 != 0){
+    while (number.length % 4 != 0) {
         number = zero + number;
     }
 
     var combined = entrybase + "-" + exitbase;
-
     var chararray = number.split('');
     var numarray = [];
 
-    var noSelection = entrybase == "0" || exitbase == "0"
+    var noSelection = entrybase == "0" || exitbase == "0";
 
-    if(noSelection){
+    if (noSelection) {
         result = "Selectionner une base d'entree et de sortie";
-    }
+    } else {
+        var bool2 = false;
+        for (var i = 0; i < chararray.length; i++) {
+            if (chararray[i] !== "0" && chararray[i] !== "1") {
+                bool2 = true;
+                break;
+            }
+        }
 
-    var bool2
-    for(var i=0; i <= chararray.length; i++){
-        if(chararray[i] !== "0" || chararray[i] !== "1"){
-            bool2 = true;
+        if (bool2) {
+            result = "Numéro d'entrée non binaire";
+        } else {
+            switch (combined) {
+                case "2-10":
+                    for (var i = 0; i < chararray.length; i++) {
+                        numarray[i] = parseInt(chararray[i]) * (2 ** (chararray.length - 1 - i));
+                    }
+                    result = numarray.reduce((acc, val) => acc + val, 0);
+                    break;
+
+                // Add other cases as needed
+
+                default:
+                    result = "Combinaison de bases non supportée";
+                    break;
+            }
         }
     }
+
+    document.getElementById("result").textContent = result;
+}
+
+function diffnumbaseop() {
+    var result = null;
+    var operation = document.getElementById("operation").value;
+    var in1 = document.getElementById("in1").value;
+    var in2 = document.getElementById("in2").value;
+    var numbase = document.getElementById("numbase").value;
 
     switch(combined){
         case "2-10":
@@ -222,11 +240,6 @@ function toggleDivs() {
     var div1 = document.getElementById("div1");
     var div2 = document.getElementById("div2");
 
-    if (div1.style.display === "block") {
-        div1.style.display = "none";
-        div2.style.display = "block";
-    } else {
-        div1.style.display = "block";
-        div2.style.display = "none";
-    }
+    div1.style.display = div1.style.display === "block" ? "none" : "block";
+    div2.style.display = div2.style.display === "block" ? "none" : "block";
 }
