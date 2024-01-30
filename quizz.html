@@ -78,7 +78,7 @@ h1 {
        <!--Shows up at the end thanks to its class -->
     <button id="retry" class="button hide">Retry</button>
     <button id="showAnswer" class="button hide">Show Answer</button>
-    <button href="index.html" class="button hide">Revenir a l'acceuil</button>
+    <button id="Accueil" class="button hide">Revenir a l'acceuil</button>
   </div>
   <script>
     //This will thnx to code later be added to the divs up top
@@ -156,6 +156,7 @@ const resultContainer = document.getElementById('result');
 const submitButton = document.getElementById('submit');
 const retryButton = document.getElementById('retry');
 const showAnswerButton = document.getElementById('showAnswer');
+const RevenirAccueil = document.getElementById('Accueil');
 
 //let pretty much assigns the numbers or list to the variable
 let currentQuestion = 0;
@@ -232,6 +233,7 @@ function displayResult() {
   submitButton.style.display = 'none';
   retryButton.style.display = 'inline-block';
   showAnswerButton.style.display = 'inline-block';
+  RevenirAccueil.style.display = 'inline-block';
   resultContainer.innerHTML = `You scored ${score} out of ${quizData.length}!`;
 }
 
