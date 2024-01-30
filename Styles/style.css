@@ -1,51 +1,4 @@
 
-@media screen and (max-width: 900px){
-    .box1 {
-        position:relative;
-        top:10px;
-        color:rgb(227, 209, 209);
-        height:50px;
-        outline:2px solid black;
-        border-radius: 7px;
-    }
-    .buttonlink1{
-        position: absolute;
-        top: 2.5%;
-        left: 25px;
-        height:40px;
-        width: 125px;
-        border-radius: 5%;
-        outline:1px solid rgb(0,0,0);
-        color:black;
-        text-align: center;
-        font-weight: bold;
-        font-size: large;
-        text-decoration: none;
-        vertical-align: middle;
-    }
-    body{
-        background:#020b2d ;
-    }
-    .Tle{
-        background-color: white;
-        height: 40px;
-        width: 900px;
-        border-radius: 10px;
-        text-align: center;
-        margin: auto;
-        margin-top: 100px;
-        padding: 4px;
-    }
-    .buttonlink2{
-        position:absolute;
-        height:150px;
-        width:150px;
-        background-color: black;
-        display: flex;
-        justify-content: center; /* Center horizontally */
-        align-items: center;
-        color: white;
-    }
 @media screen and (min-width: 900px){
     .box1 {
         position:relative;
@@ -63,7 +16,7 @@
         width: 125px;
         border-radius: 5%;
         outline:1px solid rgb(0,0,0);
-        color:black;
+        color: black;
         text-align: center;
         font-weight: bold;
         font-size: large;
@@ -71,30 +24,30 @@
         vertical-align: middle;
     }
     body{
-        background-color:#020b2d;
+        background: #020b2d;
     }
     .Tle{
         background-color: #b53477;
         height: 40px;
-        width: 900px;
+        width: 300px;
         border-radius: 10px;
         text-align: center;
         margin: auto;
         margin-top: 100px;
         padding: 4px;
     }
+
     .buttonlink2{
         position:absolute;
         height:37.5%;
         width:25%;
-        background-color: black;
+        background-color:#15659c;
         left:20%;
         top:5%;
         text-decoration: none;
-        display: flex;
-        justify-content: center; /* Center horizontally */
-        align-items: center;
-        color: white;
+        text-align: center;
+        vertical-align:midd;
+        color: black;
         border-radius: 5%;
         font-size: large;
         font-weight: bold;
