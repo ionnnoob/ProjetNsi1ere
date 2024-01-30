@@ -41,7 +41,7 @@ function changenumbase(){
 
     var bool2
     for(var i=0; i <= chararray.length; i++){
-        if(chararay[i] !== "0" || chararay[i] !== "1"){
+        if(chararray[i] !== "0" || chararray[i] !== "1"){
             bool2 = true;
         }
     }
