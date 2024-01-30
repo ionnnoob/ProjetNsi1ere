@@ -149,13 +149,13 @@ function diffnumbaseop() {
                     case '1111': hexresult += 'F'; break;
                 }
             }
-            var hexarray = hexresult.split('')
-            while(hexarray[0]== 0){
-                hexarray.splice(0, 1)
+            hexresult = hexresult.replace(/^0+/, '');
+           if (hexresult === '') {
+            hexresult = '0';
             }
-            hexresult = hexarray.join('')
-            result = hexresult
+            result = hexresult;
             break;
+
 
 
 
